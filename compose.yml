@@ -8,6 +8,10 @@
      ports:
        - 8080:80
    webplantilla:
-     build: ./webplantilla
+     image: nginx:alpine
      ports:
        - 8081:80
+     volumes: 
+       - ./webplantilla:/usr/share/nginx/html:ro
+     restart: unless-stopped
+     
